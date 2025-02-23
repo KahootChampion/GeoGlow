@@ -1,0 +1,12 @@
+# MacOS system files
+.DS_Store
+
+# Build Output
+/dist
+
+# Node.js dependencies
+/node_modules
+
+# Parcel Cache
+.parcel-cache
+
