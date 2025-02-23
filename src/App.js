@@ -1,11 +1,12 @@
-import MyComponent from "./MyComponent";
-import GlobalStyle from "./styles/GlobalStyles";
+import React from "react";
+import Header from "./Components/Header/index.jsx";
+import GlobalStyle from "./styles/GlobalStyles.js";
 
 export function App() {
   return (
     <>
       <GlobalStyle></GlobalStyle>
-      <MyComponent Text={"Geo Glow"}></MyComponent>;
+      <Header Text={"Geo Glow"}></Header>;
     </>
   );
 }
