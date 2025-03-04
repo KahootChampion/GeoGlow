@@ -7,6 +7,5 @@
 # Node.js dependencies
 /node_modules
 
-# Parcel Cache
-.parcel-cache
-
+# Vite generated files
+/.vite
