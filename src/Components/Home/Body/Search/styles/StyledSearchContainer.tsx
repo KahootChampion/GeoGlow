@@ -2,8 +2,9 @@ import { styled } from "styled-components";
 
 const StyledSearchContainer = styled.div`
   position: relative;
-  margin-left: ${(props) => props.theme.spacing.l};
-  margin-top: ${(props) => props.theme.spacing.l};
+  display: flex;
+  flex: 1;
+  align-self: normal;
 `;
 
 export default StyledSearchContainer;

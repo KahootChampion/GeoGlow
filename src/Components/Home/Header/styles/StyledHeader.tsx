@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { DARK_MODE } from "../../../Constants";
+import { DARK_MODE } from "../../../../Constants";
 
 const StyledHeader = styled.div`
   display: flex;
@@ -9,10 +9,7 @@ const StyledHeader = styled.div`
       ? props.theme.darkModeColors.darkModeInput
       : props.theme.lightModeColors.lightModeInput};
   border-bottom: 1px solid hsl(0, 0%, 0%, 20%);
-  padding-left: ${(props) => props.theme.spacing.l};
-  padding-right: ${(props) => props.theme.spacing.l};
-  padding-top: ${(props) => props.theme.spacing.l};
-  padding-bottom: ${(props) => props.theme.spacing.l};
+  padding: ${(props) => props.theme.spacing.l};
   transition: background-color 500ms ease-out;
 `;
 

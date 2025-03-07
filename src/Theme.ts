@@ -1,4 +1,7 @@
 const Theme = {
+  siteColors:{
+    placeholder: "#A9A9A9"
+  },
   lightModeColors: {
     lightModeText: "hsl(200, 15%, 8%)",
     lightModeInput: "white",
@@ -17,6 +20,7 @@ const Theme = {
   },
   spacing: {
     l: "30px",
+    m: "20px",
     s: "10px",
   },
 };

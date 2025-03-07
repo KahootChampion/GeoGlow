@@ -1,5 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import StyledSearchContainer from "./styles/StyledSearchContainer";
+import StyledSearchContainer from "./styles/StyledSearchContainer.tsx";
 import StyledMagnifyingGlass from "./styles/StyledMagnifyingGlass.tsx";
 import StyledInput from "./styles/StyledInput.tsx";
 
