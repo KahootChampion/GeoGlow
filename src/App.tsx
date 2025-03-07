@@ -6,17 +6,23 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons/faMagnifyin
 import { useContext } from "react";
 import { SiteThemeContext } from "./SiteThemeContext";
 import Search from "./Components/Search";
-import React from "react";
+import { ThemeProvider } from "styled-components";
+import Theme from "./Theme";
 
 function App() {
   library.add(faMoon, faSun, faMagnifyingGlass);
   const { siteTheme } = useContext(SiteThemeContext);
-
+  const themeValues = {
+    ...Theme,
+    siteTheme,
+  };
   return (
     <>
-      <GlobalStyle siteTheme={siteTheme}></GlobalStyle>
-      <Header></Header>
-      <Search></Search>
+      <ThemeProvider theme={themeValues}>
+        <GlobalStyle></GlobalStyle>
+        <Header></Header>
+        <Search></Search>
+      </ThemeProvider>
     </>
   );
 }
