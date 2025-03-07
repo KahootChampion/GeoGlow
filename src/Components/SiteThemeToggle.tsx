@@ -1,26 +1,27 @@
 import { useContext } from "react";
 import { SiteThemeContext } from "../SiteThemeContext";
-import { DARKMODE, LIGHTMODE } from "../Constants";
+import { DARK_MODE, LIGHT_MODE } from "../Constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import StyledToggle from "./Header/styles/StyledToggle";
+import React from "react";
 
 const SiteThemeToggle = () => {
   const { siteTheme, setSiteTheme } = useContext(SiteThemeContext);
   return (
     <StyledToggle
       onClick={(e) => {
-        setSiteTheme(siteTheme === DARKMODE ? LIGHTMODE : DARKMODE);
+        setSiteTheme(siteTheme === DARK_MODE ? LIGHT_MODE : DARK_MODE);
       }}
     >
       <FontAwesomeIcon
         icon={
-          siteTheme === DARKMODE
+          siteTheme === DARK_MODE
             ? ("fa-regular fa-sun" as IconProp)
             : ("fa-regular fa-moon" as IconProp)
         }
       />
-      <span>{siteTheme === DARKMODE ? "Light Mode" : "Dark Mode"}</span>
+      <span>{siteTheme === DARK_MODE ? "Light Mode" : "Dark Mode"}</span>
     </StyledToggle>
   );
 };

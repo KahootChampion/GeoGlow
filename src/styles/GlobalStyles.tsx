@@ -1,13 +1,11 @@
-import { useContext } from "react";
 import { createGlobalStyle } from "styled-components";
-import { SiteThemeContext } from "../SiteThemeContext";
-import { DARKMODE } from "../Constants";
+import { DARK_MODE } from "../Constants";
 
 export interface GlobalStyleProps {
   siteTheme: string;
 }
 
-let GlobalStyle = createGlobalStyle<GlobalStyleProps>`
+const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   /* Global Reset */
   * {
     margin: 0;
@@ -17,11 +15,20 @@ let GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   }
 
   body {
-        color: ${(props) => (props.siteTheme === DARKMODE ? `white` : `black`)};
+    color: ${(props) =>
+      props.siteTheme === DARK_MODE
+        ? props.theme.darkModeColors.darkModeText
+        : props.theme.lightModeColors.lightModeText};
     background-color: ${(props) =>
-      props.siteTheme === DARKMODE ? `hsl(207, 26%, 17%)` : `hsl(0, 0%, 98%)`};
+      props.siteTheme === DARK_MODE
+        ? props.theme.darkModeColors.darkModeBackground
+        : props.theme.lightModeColors.lightModeBackground};
     transition: background-color 500ms ease-out;
 
+  }
+
+  html{
+    overflow: hidden;
   }
 `;
 

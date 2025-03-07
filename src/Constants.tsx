@@ -1,3 +1,3 @@
-export const DARKMODE = "dark";
+export const DARK_MODE = "dark";
 
-export const LIGHTMODE = "light";
+export const LIGHT_MODE = "light";

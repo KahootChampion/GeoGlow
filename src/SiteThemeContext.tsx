@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
-import { LIGHTMODE } from "./Constants";
+import { LIGHT_MODE } from "./Constants";
+import React from "react";
 
 export interface SiteThemeContextProviderProps {
   children: React.ReactNode;
@@ -11,12 +12,12 @@ export interface ContextTypes {
 }
 
 const SiteThemeContext = createContext<ContextTypes>({
-  siteTheme: LIGHTMODE,
+  siteTheme: LIGHT_MODE,
   setSiteTheme: () => {},
 });
 
 const SiteThemeProvider = (props: SiteThemeContextProviderProps) => {
-  const [siteTheme, setSiteTheme] = useState(LIGHTMODE);
+  const [siteTheme, setSiteTheme] = useState(LIGHT_MODE);
   return (
     <SiteThemeContext.Provider value={{ siteTheme, setSiteTheme }}>
       {props.children}
