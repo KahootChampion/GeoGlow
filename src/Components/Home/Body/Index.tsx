@@ -4,6 +4,7 @@ import StyledContainer from "./styles/StyledContainer";
 import axios, { AxiosRequestConfig } from "axios";
 import Filter from "./Filter/Filter";
 import StyledFilterSectionContainer from "./styles/StyledFilterSectionContainer";
+import SelectDemo from "./Filter/SelectDemo";
 
 export interface RestCountryApiEntry {
   flags: { svg: string; alt: string };
@@ -34,6 +35,7 @@ const Body = () => {
       <StyledFilterSectionContainer>
         <Search />
         <Filter listOfRegions={allRegions} />
+        <SelectDemo />
       </StyledFilterSectionContainer>
     </StyledContainer>
   );
