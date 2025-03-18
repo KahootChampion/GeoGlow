@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { DARK_MODE } from "../../../../../Constants";
+import { DARK_MODE } from "../../../../Constants";
 
 const StyledOption = styled.option`
   color: ${(props) =>

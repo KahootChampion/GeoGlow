@@ -8,6 +8,7 @@ const StyledSelectItem = styled(Select.SelectItem)`
   border-radius: 3px;
   display: flex;
   align-items: center;
+  text-align: center;
   height: 30px;
   padding: 0 35px 0 25px;
   position: relative;

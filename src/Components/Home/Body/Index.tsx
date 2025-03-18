@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import StyledContainer from "./styles/StyledContainer";
 import axios, { AxiosRequestConfig } from "axios";
-import Filter from "./Filter/Filter";
 import StyledFilterSectionContainer from "./styles/StyledFilterSectionContainer";
-import SelectDemo from "./Filter/SelectDemo";
+import CountryFilter from "./RegionFilter";
 
 export interface RestCountryApiEntry {
   flags: { svg: string; alt: string };
@@ -34,8 +33,11 @@ const Body = () => {
     <StyledContainer>
       <StyledFilterSectionContainer>
         <Search />
-        <Filter listOfRegions={allRegions} />
-        <SelectDemo />
+        <CountryFilter
+          regions={allRegions}
+          ariaLabel="Region Filter"
+          placeholder="Filter by Region"
+        />
       </StyledFilterSectionContainer>
     </StyledContainer>
   );
