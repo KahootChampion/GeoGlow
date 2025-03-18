@@ -6,7 +6,7 @@ import StyledTrigger from "./styles/StyledTrigger";
 import StyledContent from "./styles/StyledContent";
 import StyledViewport from "./styles/StyledViewport";
 
-import StyledSelectScrollButton from "./styles/StyledSelectScrollButton";
+import StyledIcon from "./styles/StyledIcon";
 
 export interface FilterProps {
   ariaLabel: string;
@@ -18,20 +18,15 @@ const FilterComponent = (props: FilterProps) => (
   <Select.Root>
     <StyledTrigger aria-label={props.ariaLabel}>
       <Select.Value placeholder={props.placeholder} />
-      <Select.Icon>
+      <StyledIcon>
         <FontAwesomeIcon
           icon={"fa-classic fa-solid fa-chevron-down" as IconProp}
         />
-      </Select.Icon>
+      </StyledIcon>
     </StyledTrigger>
     <Select.Portal>
-      <StyledContent>
+      <StyledContent position="popper">
         <StyledViewport>{props.children}</StyledViewport>
-        <StyledSelectScrollButton>
-          <FontAwesomeIcon
-            icon={"fa-classic fa-solid fa-chevron-down" as IconProp}
-          />
-        </StyledSelectScrollButton>
       </StyledContent>
     </Select.Portal>
   </Select.Root>

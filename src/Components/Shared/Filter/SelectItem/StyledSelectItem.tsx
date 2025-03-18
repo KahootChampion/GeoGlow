@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
 import { Select } from "radix-ui";
+import { DARK_MODE } from "../../../../Constants";
 
 const StyledSelectItem = styled(Select.SelectItem)`
   line-height: 1;
-  color: purple;
   border-radius: 3px;
   display: flex;
   align-items: center;
@@ -26,6 +26,10 @@ const StyledSelectItem = styled(Select.SelectItem)`
     color: pink;
   }
   font-size: ${(props) => props.theme.fontSize.mobile.subtitle};
+  color: ${(props) =>
+    props.theme.siteTheme === DARK_MODE
+      ? props.theme.darkModeColors.darkModeText
+      : props.theme.lightModeColors.lightModeText};
 
   @media ${(props) => props.theme.media.desktop} {
     font-size: ${(props) => props.theme.fontSize.desktop.subtitle};

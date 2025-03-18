@@ -19,6 +19,9 @@ const Theme = {
     desktop:`(min-width: 1440px)`,
   },
   spacing: {
+    
+    xxl: "50px",
+    xl: "40px",
     l: "30px",
     m: "20px",
     s: "10px",
