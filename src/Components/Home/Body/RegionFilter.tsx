@@ -14,17 +14,13 @@ export interface FilterProps {
 
 const RegionFilter = (props: FilterProps) => (
   <FilterComponent ariaLabel={props.ariaLabel} placeholder={props.placeholder}>
-    <Select.Group>
-      <StyledSelectLabel>Regions</StyledSelectLabel>
-      <StyledSelectOperator />
-      {props.regions.map((item, i) => {
-        return (
-          <CustomSelectItem key={i} value={item}>
-            {item}
-          </CustomSelectItem>
-        );
-      })}
-    </Select.Group>
+    {props.regions.map((item, i) => {
+      return (
+        <CustomSelectItem key={i} value={item}>
+          {item}
+        </CustomSelectItem>
+      );
+    })}
   </FilterComponent>
 );
 

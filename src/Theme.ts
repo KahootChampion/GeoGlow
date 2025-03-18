@@ -15,14 +15,26 @@ const Theme = {
     darkModeElements: "hsl(209, 23%, 22%)",
   },
   media: {
-    mobile: "375px",
-    desktop: "1440px",
+    mobile: `(min-width: 375px)`,
+    desktop:`(min-width: 1440px)`,
   },
   spacing: {
     l: "30px",
     m: "20px",
     s: "10px",
   },
+  fontSize: {
+    mobile: {
+      title: '60px',
+      subtitle: '30px',
+      regular: '10px'
+    },
+    desktop: {
+      title: '40px',
+      subtitle: '20px',
+      regular: "5px" 
+    }
+  }
 };
 
 export default Theme;

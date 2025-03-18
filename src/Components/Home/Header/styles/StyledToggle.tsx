@@ -4,8 +4,12 @@ const StyledToggle = styled.div`
   display: flex;
   gap: ${(props) => props.theme.spacing.s};
   align-items: center;
-  font-size: 20px;
   cursor: pointer;
+  font-size: ${(props) => props.theme.fontSize.mobile.subtitle};
+
+  @media ${(props) => props.theme.media.desktop} {
+    font-size: ${(props) => props.theme.fontSize.desktop.subtitle};
+  }
 `;
 
 export default StyledToggle;

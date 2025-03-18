@@ -2,9 +2,10 @@ import { styled } from "styled-components";
 import { DARK_MODE } from "../../../../../Constants";
 
 const StyledInput = styled("input")`
-  padding-left: 50px;
-  flex: 1;
+  font-size: ${(props) => props.theme.fontSize.mobile.subtitle};
 
+  padding-left: 100px;
+  flex: 1;
   padding-top: ${(props) => props.theme.spacing.s};
   padding-bottom: ${(props) => props.theme.spacing.s};
   background-color: ${(props) =>
@@ -27,6 +28,11 @@ const StyledInput = styled("input")`
   &::-ms-input-placeholder {
     /* Edge 12 -18 */
     color: ${(props) => props.theme.siteColors.placeholder};
+  }
+
+  @media ${(props) => props.theme.media.desktop} {
+    font-size: ${(props) => props.theme.fontSize.desktop.subtitle};
+    padding-left: 50px;
   }
 `;
 
