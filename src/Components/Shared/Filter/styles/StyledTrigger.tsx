@@ -5,15 +5,13 @@ import { DARK_MODE } from "../../../../Constants";
 const StyledTrigger = styled(Select.Trigger)`
   font-size: ${(props) => props.theme.fontSize.mobile.subtitle};
   position: relative;
+  width: 200px;
 
   cursor: pointer;
   display: flex;
-  flex: 1;
   align-items: center;
-  justify-content: center;
   border-radius: 10px;
   line-height: 1;
-  height: 35px;
   gap: 5px;
 
   /* padding */
@@ -39,6 +37,7 @@ const StyledTrigger = styled(Select.Trigger)`
   @media ${(props) => props.theme.media.desktop} {
     font-size: ${(props) => props.theme.fontSize.desktop.subtitle};
     padding-right: ${(props) => props.theme.spacing.xl};
+    width: 150px;
   }
 `;
 export default StyledTrigger;
