@@ -4,6 +4,7 @@ import StyledSelectOperator from "../../Shared/Filter/styles/StyledSelectSeparat
 import FilterComponent from "../../Shared/Filter/FilterComponent";
 import StyledSelectItem from "../../Shared/Filter/SelectItem/StyledSelectItem";
 import { ItemText } from "@radix-ui/react-select";
+import CustomSelectItem from "../../Shared/Filter/SelectItem/CustomSelectItem";
 
 export interface FilterProps {
   ariaLabel: string;
@@ -18,9 +19,9 @@ const RegionFilter = (props: FilterProps) => (
       <StyledSelectOperator />
       {props.regions.map((item, i) => {
         return (
-          <StyledSelectItem key={i} value={item}>
-            <ItemText> {item} </ItemText>
-          </StyledSelectItem>
+          <CustomSelectItem key={i} value={item}>
+            {item}
+          </CustomSelectItem>
         );
       })}
     </Select.Group>

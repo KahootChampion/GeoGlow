@@ -22,7 +22,6 @@ const StyledSelectItem = styled(Select.SelectItem)`
 
   &[data-highlighted] {
     outline: none;
-    background-color: blue;
     color: pink;
   }
 `;
