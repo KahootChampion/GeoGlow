@@ -30,10 +30,14 @@ const Body = () => {
           allCountriesApiResponse.data;
         const sortedData = allCountriesData.sort(
           (firstCountry, secondCountry) =>
-            firstCountry.name.common.localeCompare(secondCountry.name.common)
+            firstCountry.name.common
+              .toLocaleString()
+              .localeCompare(secondCountry.name.common.toLocaleString())
         );
         setCountryData(sortedData);
-        setAllRegions([...new Set(countryData.map((c) => c.region))].sort());
+        setAllRegions(
+          [...new Set(allCountriesData.map((c) => c.region))].sort()
+        );
       } catch (error) {
         console.log(`Received error: ${error}`);
       }
