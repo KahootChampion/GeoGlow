@@ -1,11 +1,12 @@
-import React, { Key, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import StyledContainer from "./styles/StyledContainer";
-import axios, { AxiosRequestConfig } from "axios";
-import StyledFilterSectionContainer from "./styles/StyledFilterSectionContainer";
-import CountryFilter from "./RegionFilter";
+import StyledFilterSectionContainer from "./Filter/StyledFilterSectionContainer";
+import CountryFilter from "./Filter/RegionFilter";
 import CountryDataComponent from "./CountryDataComponent";
 import StyledCountryDataWrapper from "./CountryDataComponent/styles/StyledCountryDataWrapper";
+import { applyFilters } from "./Filter/Filters";
+import useFetchCountries from "./useFetchCountries";
 
 export interface RestCountryApiEntry {
   flags: { svg: string; alt: string };
@@ -16,72 +17,24 @@ export interface RestCountryApiEntry {
 }
 
 const Body = () => {
-  const [allRegions, setAllRegions] = useState<string[]>([]);
-  const [countryData, setCountryData] = useState<RestCountryApiEntry[]>([]);
   const [filteredCountryData, setFilteredCountryData] = useState<
     RestCountryApiEntry[]
   >([]);
   const [searchString, setSearchString] = useState("");
   const [appliedRegionFilter, setAppliedRegionFilter] = useState("All");
 
-  const filterBySearch = (countryData: RestCountryApiEntry[]) => {
-    return countryData.filter((country) => {
-      return searchString === ""
-        ? true
-        : country.name.common
-            .toLocaleLowerCase()
-            .trim()
-            .startsWith(searchString.toLocaleLowerCase().trim());
-    });
-  };
-
-  const filterByRegion = (countryData: RestCountryApiEntry[]) => {
-    return countryData.filter((country) => {
-      return appliedRegionFilter === "All"
-        ? true
-        : country.region.trim().toLocaleLowerCase() ===
-            appliedRegionFilter.toLocaleLowerCase();
-    });
-  };
+  const { countryData, allRegions } = useFetchCountries();
 
   useEffect(() => {
-    const filteredSearch = filterBySearch(countryData);
-    const filteredRegions = filterByRegion(countryData);
-
-    const filteredData = filteredSearch.filter((searchEntry) => {
-      return filteredRegions.includes(searchEntry);
-    });
+    const filteredData = applyFilters(
+      countryData,
+      searchString,
+      appliedRegionFilter
+    );
 
     setFilteredCountryData(filteredData);
-  }, [searchString, appliedRegionFilter]);
+  }, [countryData, searchString, appliedRegionFilter]);
 
-  useEffect(() => {
-    async function CallCountriesAPI() {
-      try {
-        const axiosRequestConfig: AxiosRequestConfig = {
-          url: "https://restcountries.com/v3.1/all",
-          timeout: 4000,
-        };
-        const allCountriesApiResponse = await axios(axiosRequestConfig);
-        const allCountriesData: RestCountryApiEntry[] =
-          allCountriesApiResponse.data;
-        const sortedData = allCountriesData.sort(
-          (firstCountry, secondCountry) =>
-            firstCountry.name.common
-              .toLocaleString()
-              .localeCompare(secondCountry.name.common.toLocaleString())
-        );
-        setCountryData(sortedData);
-        setFilteredCountryData(sortedData);
-        setAllRegions(
-          [...new Set(allCountriesData.map((c) => c.region))].sort()
-        );
-      } catch (error) {
-        console.log(`Received error: ${error}`);
-      }
-    }
-    CallCountriesAPI();
-  }, []);
   return (
     <StyledContainer>
       <StyledFilterSectionContainer>

@@ -1,5 +1,5 @@
-import FilterComponent from "../../Shared/Filter/FilterComponent";
-import CustomSelectItem from "../../Shared/Filter/SelectItem/CustomSelectItem";
+import FilterComponent from "../../../Shared/Filter/FilterComponent";
+import CustomSelectItem from "../../../Shared/Filter/SelectItem/CustomSelectItem";
 
 export interface FilterProps {
   ariaLabel: string;
