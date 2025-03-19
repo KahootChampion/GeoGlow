@@ -12,10 +12,11 @@ export interface FilterProps {
   ariaLabel: string;
   placeholder: string;
   children: React.ReactNode;
+  onValueChange: (value: string) => void;
 }
 
 const FilterComponent = (props: FilterProps) => (
-  <Select.Root>
+  <Select.Root onValueChange={(e) => props.onValueChange(e)}>
     <StyledTrigger aria-label={props.ariaLabel}>
       <Select.Value placeholder={props.placeholder} />
       <StyledIcon>

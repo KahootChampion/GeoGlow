@@ -10,7 +10,7 @@ import StyledCountryDataWrapper from "./CountryDataComponent/styles/StyledCountr
 export interface RestCountryApiEntry {
   flags: { svg: string; alt: string };
   region: string;
-  name: { common: string | Key };
+  name: { common: string };
   population: number;
   capital: string;
 }
@@ -18,6 +18,43 @@ export interface RestCountryApiEntry {
 const Body = () => {
   const [allRegions, setAllRegions] = useState<string[]>([]);
   const [countryData, setCountryData] = useState<RestCountryApiEntry[]>([]);
+  const [filteredCountryData, setFilteredCountryData] = useState<
+    RestCountryApiEntry[]
+  >([]);
+  const [searchString, setSearchString] = useState("");
+  const [appliedRegionFilter, setAppliedRegionFilter] = useState("All");
+
+  const filterBySearch = (countryData: RestCountryApiEntry[]) => {
+    return countryData.filter((country) => {
+      return searchString === ""
+        ? true
+        : country.name.common
+            .toLocaleLowerCase()
+            .trim()
+            .startsWith(searchString.toLocaleLowerCase().trim());
+    });
+  };
+
+  const filterByRegion = (countryData: RestCountryApiEntry[]) => {
+    return countryData.filter((country) => {
+      return appliedRegionFilter === "All"
+        ? true
+        : country.region.trim().toLocaleLowerCase() ===
+            appliedRegionFilter.toLocaleLowerCase();
+    });
+  };
+
+  useEffect(() => {
+    const filteredSearch = filterBySearch(countryData);
+    const filteredRegions = filterByRegion(countryData);
+
+    const filteredData = filteredSearch.filter((searchEntry) => {
+      return filteredRegions.includes(searchEntry);
+    });
+
+    setFilteredCountryData(filteredData);
+  }, [searchString, appliedRegionFilter]);
+
   useEffect(() => {
     async function CallCountriesAPI() {
       try {
@@ -35,6 +72,7 @@ const Body = () => {
               .localeCompare(secondCountry.name.common.toLocaleString())
         );
         setCountryData(sortedData);
+        setFilteredCountryData(sortedData);
         setAllRegions(
           [...new Set(allCountriesData.map((c) => c.region))].sort()
         );
@@ -47,15 +85,16 @@ const Body = () => {
   return (
     <StyledContainer>
       <StyledFilterSectionContainer>
-        <Search />
+        <Search setSearchString={setSearchString} />
         <CountryFilter
-          regions={allRegions}
+          regions={["All", ...allRegions]}
           ariaLabel="Region Filter"
           placeholder="Filter by Region"
+          setAppliedRegionFilter={setAppliedRegionFilter}
         />
       </StyledFilterSectionContainer>
       <StyledCountryDataWrapper>
-        {countryData.map((country, i) => {
+        {filteredCountryData.map((country, i) => {
           return (
             <CountryDataComponent key={i} {...country}></CountryDataComponent>
           );

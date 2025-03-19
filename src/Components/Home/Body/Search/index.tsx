@@ -3,10 +3,15 @@ import StyledSearchContainer from "./styles/StyledSearchContainer.tsx";
 import StyledMagnifyingGlass from "./styles/StyledMagnifyingGlass.tsx";
 import StyledInput from "./styles/StyledInput.tsx";
 
-const Search = () => {
+interface SearchProps {
+  setSearchString: (searchString: string) => void;
+}
+
+const Search = ({ setSearchString }: SearchProps) => {
   return (
     <StyledSearchContainer>
       <StyledInput
+        onChange={(e) => setSearchString(e.target.value)}
         type="search"
         id="Country Search"
         placeholder="Search for a country..."

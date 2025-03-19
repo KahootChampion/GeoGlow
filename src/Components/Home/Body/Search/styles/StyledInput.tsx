@@ -3,6 +3,7 @@ import { DARK_MODE } from "../../../../../Constants";
 
 const StyledInput = styled("input")`
   font-size: ${(props) => props.theme.fontSize.mobile.subtitle};
+  border-radius: 10px;
 
   padding-left: 100px;
   flex: 1;

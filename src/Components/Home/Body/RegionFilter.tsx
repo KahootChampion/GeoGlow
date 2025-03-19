@@ -1,19 +1,19 @@
-import { Select } from "radix-ui";
-import StyledSelectLabel from "../../Shared/Filter/styles/StyledSelectLabel";
-import StyledSelectOperator from "../../Shared/Filter/styles/StyledSelectSeparator";
 import FilterComponent from "../../Shared/Filter/FilterComponent";
-import StyledSelectItem from "../../Shared/Filter/SelectItem/StyledSelectItem";
-import { ItemText } from "@radix-ui/react-select";
 import CustomSelectItem from "../../Shared/Filter/SelectItem/CustomSelectItem";
 
 export interface FilterProps {
   ariaLabel: string;
   placeholder: string;
   regions: string[];
+  setAppliedRegionFilter: (value: string) => void;
 }
 
 const RegionFilter = (props: FilterProps) => (
-  <FilterComponent ariaLabel={props.ariaLabel} placeholder={props.placeholder}>
+  <FilterComponent
+    onValueChange={props.setAppliedRegionFilter}
+    ariaLabel={props.ariaLabel}
+    placeholder={props.placeholder}
+  >
     {props.regions.map((item, i) => {
       return (
         <CustomSelectItem key={i} value={item}>
