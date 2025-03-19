@@ -15,8 +15,7 @@ const Theme = {
     darkModeElements: "hsl(209, 23%, 22%)",
   },
   media: {
-    mobile: `(min-width: 375px)`,
-    desktop: `(min-width: 992px)`,
+    desktop: `(min-width: 870px)`,
   },
   spacing: {
     xxl: "50px",
@@ -27,9 +26,9 @@ const Theme = {
   },
   fontSize: {
     mobile: {
-      title: "60px",
-      subtitle: "30px",
-      regular: "24px",
+      title: "20px",
+      subtitle: "14px",
+      regular: "12px",
     },
     desktop: {
       title: "40px",

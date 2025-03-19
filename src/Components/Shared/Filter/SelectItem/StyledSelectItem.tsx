@@ -10,7 +10,7 @@ const StyledSelectItem = styled(Select.SelectItem)`
   justify-content: center;
   text-align: center;
   height: 30px;
-  padding: 30px 35px 30px 25px;
+  padding: 10px 35px 30px 25px;
   position: relative;
   user-select: none;
   cursor: pointer;

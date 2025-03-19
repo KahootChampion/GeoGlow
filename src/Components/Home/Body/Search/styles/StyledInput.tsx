@@ -5,7 +5,7 @@ const StyledInput = styled("input")`
   font-size: ${(props) => props.theme.fontSize.mobile.subtitle};
   border-radius: 10px;
 
-  padding-left: 100px;
+  padding-left: 50px;
   flex: 1;
   padding-top: ${(props) => props.theme.spacing.s};
   padding-bottom: ${(props) => props.theme.spacing.s};
@@ -40,7 +40,6 @@ const StyledInput = styled("input")`
 
   @media ${(props) => props.theme.media.desktop} {
     font-size: ${(props) => props.theme.fontSize.desktop.subtitle};
-    padding-left: 50px;
   }
 `;
 
