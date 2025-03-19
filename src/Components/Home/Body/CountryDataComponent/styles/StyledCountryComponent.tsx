@@ -10,6 +10,8 @@ const StyledCountryComponent = styled.div`
     props.theme.siteTheme === DARK_MODE
       ? props.theme.darkModeColors.darkModeInput
       : props.theme.lightModeColors.lightModeInput};
+  transition: transform ease-in-out 500ms, box-shadow ease-in-out 500ms,
+    background-color ease-out 500ms;
 
   &:hover {
     box-shadow: ${(props) =>
@@ -18,7 +20,6 @@ const StyledCountryComponent = styled.div`
         : `5px 5px 20px 0px ${props.theme.lightModeColors.lightModeText}`};
     transform: skewX(5deg) skewY(20deg);
     cursor: pointer;
-    transition: transform ease-in-out 500ms, box-shadow ease-in-out 500ms;
   }
 
   font-size: ${(props) => props.theme.fontSize.mobile.regular};
