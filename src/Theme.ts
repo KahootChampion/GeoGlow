@@ -1,6 +1,6 @@
 const Theme = {
-  siteColors:{
-    placeholder: "#A9A9A9"
+  siteColors: {
+    placeholder: "#A9A9A9",
   },
   lightModeColors: {
     lightModeText: "hsl(200, 15%, 8%)",
@@ -16,10 +16,9 @@ const Theme = {
   },
   media: {
     mobile: `(min-width: 375px)`,
-    desktop:`(min-width: 1440px)`,
+    desktop: `(min-width: 992px)`,
   },
   spacing: {
-    
     xxl: "50px",
     xl: "40px",
     l: "30px",
@@ -28,16 +27,16 @@ const Theme = {
   },
   fontSize: {
     mobile: {
-      title: '60px',
-      subtitle: '30px',
-      regular: '10px'
+      title: "60px",
+      subtitle: "30px",
+      regular: "24px",
     },
     desktop: {
-      title: '40px',
-      subtitle: '20px',
-      regular: "5px" 
-    }
-  }
+      title: "40px",
+      subtitle: "20px",
+      regular: "16px",
+    },
+  },
 };
 
 export default Theme;

@@ -6,6 +6,7 @@ const StyledToggle = styled.div`
   align-items: center;
   cursor: pointer;
   font-size: ${(props) => props.theme.fontSize.mobile.subtitle};
+  outline: none;
 
   @media ${(props) => props.theme.media.desktop} {
     font-size: ${(props) => props.theme.fontSize.desktop.subtitle};

@@ -5,7 +5,7 @@ import { DARK_MODE } from "../../../../Constants";
 const StyledTrigger = styled(Select.Trigger)`
   font-size: ${(props) => props.theme.fontSize.mobile.subtitle};
   position: relative;
-  width: 200px;
+  width: 300px;
 
   cursor: pointer;
   display: flex;
@@ -28,8 +28,15 @@ const StyledTrigger = styled(Select.Trigger)`
     props.theme.siteTheme === DARK_MODE
       ? props.theme.darkModeColors.darkModeText
       : props.theme.lightModeColors.lightModeText};
-  transition: background-color 500ms ease-out;
+  transition: background-color 500ms ease-out, box-shadow ease-in-out 500ms;
   border: 1px solid hsl(0, 0%, 0%, 20%);
+
+  &:hover {
+    box-shadow: ${(props) =>
+      props.theme.siteTheme === DARK_MODE
+        ? `5px 5px 20px 0px ${props.theme.darkModeColors.darkModeText}`
+        : `5px 5px 20px 0px ${props.theme.lightModeColors.lightModeText}`};
+  }
 
   &[data-placeholder] {
     color: ${(props) => props.theme.siteColors.placeholder};
@@ -37,7 +44,7 @@ const StyledTrigger = styled(Select.Trigger)`
   @media ${(props) => props.theme.media.desktop} {
     font-size: ${(props) => props.theme.fontSize.desktop.subtitle};
     padding-right: ${(props) => props.theme.spacing.xl};
-    width: 150px;
+    width: 220px;
   }
 `;
 export default StyledTrigger;

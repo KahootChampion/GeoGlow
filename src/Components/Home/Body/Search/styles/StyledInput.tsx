@@ -17,8 +17,15 @@ const StyledInput = styled("input")`
       ? props.theme.darkModeColors.darkModeText
       : props.theme.lightModeColors.lightModeText};
   border: none;
-  transition: background-color 500ms ease-out;
+  transition: background-color 500ms ease-out, box-shadow ease-in-out 500ms;
   border: 1px solid hsl(0, 0%, 0%, 20%);
+
+  &:hover {
+    box-shadow: ${(props) =>
+      props.theme.siteTheme === DARK_MODE
+        ? `5px 5px 20px 0px ${props.theme.darkModeColors.darkModeText}`
+        : `5px 5px 20px 0px ${props.theme.lightModeColors.lightModeText}`};
+  }
 
   &::placeholder {
     color: ${(props) => props.theme.siteColors.placeholder};

@@ -22,9 +22,7 @@ const GlobalStyle = createGlobalStyle`
     transition: background-color 500ms ease-out;
   }
 
-  html{
-    overflow: hidden;
-  }
+
 `;
 
 export default GlobalStyle;
