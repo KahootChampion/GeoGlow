@@ -6,15 +6,7 @@ import CountryFilter from "./Filter/RegionFilter";
 import CountryDataComponent from "./CountryDataComponent";
 import StyledCountryDataWrapper from "./CountryDataComponent/styles/StyledCountryDataWrapper";
 import { applyFilters } from "./Filter/Filters";
-import useFetchCountries from "./useFetchCountries";
-
-export interface RestCountryApiEntry {
-  flags: { svg: string; alt: string };
-  region: string;
-  name: { common: string };
-  population: number;
-  capital: string;
-}
+import useFetchCountries, { RestCountryApiEntry } from "./useFetchCountries";
 
 const Body = () => {
   const [filteredCountryData, setFilteredCountryData] = useState<
@@ -23,7 +15,7 @@ const Body = () => {
   const [searchString, setSearchString] = useState("");
   const [appliedRegionFilter, setAppliedRegionFilter] = useState("All");
 
-  const { countryData, allRegions } = useFetchCountries();
+  const { countryData, allRegions, error, isLoading } = useFetchCountries();
 
   useEffect(() => {
     const filteredData = applyFilters(
@@ -46,10 +38,15 @@ const Body = () => {
           setAppliedRegionFilter={setAppliedRegionFilter}
         />
       </StyledFilterSectionContainer>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>error</p>}
       <StyledCountryDataWrapper>
-        {filteredCountryData.map((country, i) => {
+        {filteredCountryData.map((country) => {
           return (
-            <CountryDataComponent key={i} {...country}></CountryDataComponent>
+            <CountryDataComponent
+              key={country.name.common}
+              {...country}
+            ></CountryDataComponent>
           );
         })}
       </StyledCountryDataWrapper>

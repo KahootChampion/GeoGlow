@@ -1,6 +1,13 @@
 import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
-import { RestCountryApiEntry } from "./Index";
+
+export interface RestCountryApiEntry {
+  flags: { svg: string; alt: string };
+  region: string;
+  name: { common: string };
+  population: number;
+  capital: string;
+}
 
 const useFetchCountries = () => {
   const [allRegions, setAllRegions] = useState<string[]>([]);
@@ -31,7 +38,9 @@ const useFetchCountries = () => {
         );
       } catch (error) {
         setError(
-          "An error was thrown while making a request to the Countries API"
+          error instanceof Error
+            ? error.message
+            : "An error occured while attempting to fetch data from the REST countries API"
         );
       } finally {
         setIsLoading(false);

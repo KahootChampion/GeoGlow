@@ -1,4 +1,4 @@
-import { RestCountryApiEntry } from "../Index";
+import { RestCountryApiEntry } from "../useFetchCountries";
 
 const filterBySearch = (country: RestCountryApiEntry, searchString: string) => {
   return searchString === ""
