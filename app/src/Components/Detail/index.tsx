@@ -1,8 +1,11 @@
 import { useParams } from "react-router";
 
+type DetailProps = {
+  countryName: string;
+};
 const Detail = () => {
-  const params = useParams();
-  return <div>{params.countryName}</div>;
+  const { countryName } = useParams<DetailProps>();
+  return <div>{countryName}</div>;
 };
 
 export default Detail;
