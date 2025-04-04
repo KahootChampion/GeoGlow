@@ -7,7 +7,7 @@ import {
   faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { SiteThemeProvider } from "./SiteThemeContext.tsx";
-import Index from "./index.tsx";
+import Index from "./Index.tsx";
 
 function App() {
   library.add(

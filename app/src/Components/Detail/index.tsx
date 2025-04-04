@@ -1,13 +1,8 @@
-import React from "react";
-import { Params, RouteProps, useParams } from "react-router";
+import { useParams } from "react-router";
 
-interface CompProps extends RouteProps {
-    name: string;
-  }
 const Detail = () => {
-  let params: params = useParams();
-  params.countryId;
-  return <div>Hello World</div>;
+  const params = useParams();
+  return <div>{params.countryName}</div>;
 };
 
 export default Detail;

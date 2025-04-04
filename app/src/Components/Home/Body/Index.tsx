@@ -7,6 +7,7 @@ import CountryDataComponent from "./CountryDataComponent";
 import StyledCountryDataWrapper from "./CountryDataComponent/styles/StyledCountryDataWrapper";
 import { applyFilters } from "./Filter/Filters";
 import useFetchCountries, { RestCountryApiEntry } from "./useFetchCountries";
+import StyledLink from "../../../StyledLink";
 
 const Body = () => {
   const [filteredCountryData, setFilteredCountryData] = useState<
@@ -43,10 +44,12 @@ const Body = () => {
       <StyledCountryDataWrapper>
         {filteredCountryData.map((country) => {
           return (
-            <CountryDataComponent
+            <StyledLink
+              to={`country/${country.name.common}`}
               key={country.name.common}
-              {...country}
-            ></CountryDataComponent>
+            >
+              <CountryDataComponent {...country}></CountryDataComponent>
+            </StyledLink>
           );
         })}
       </StyledCountryDataWrapper>
