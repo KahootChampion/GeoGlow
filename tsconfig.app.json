@@ -23,5 +23,5 @@
     "noUncheckedSideEffectImports": true,
     "rootDirs": [".", "./.react-router/types"]
   },
-  "include": ["src", "src/**/*", ".react-router/types/**/*", "app/root.tsx"]
+  "include": ["app/src", "app/src/**/*", ".react-router/types/**/*", "app/root.tsx"]
 }

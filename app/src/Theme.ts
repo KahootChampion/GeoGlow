@@ -1,4 +1,7 @@
-const Theme = {
+import { DefaultTheme } from "styled-components";
+
+
+const Theme: DefaultTheme = {
   siteColors: {
     placeholder: "#A9A9A9",
   },
