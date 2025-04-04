@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 const StyledCountryInformationContainer = styled.span`
   margin-left: ${(props) => props.theme.spacing.l};

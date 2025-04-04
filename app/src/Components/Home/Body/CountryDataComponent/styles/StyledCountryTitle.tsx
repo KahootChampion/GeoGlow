@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 const StyledCountryTitle = styled.h2`
   font-weight: 800;

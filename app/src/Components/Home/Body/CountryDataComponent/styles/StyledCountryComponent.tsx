@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { DARK_MODE } from "../../../../../Constants";
 
 const StyledCountryComponent = styled.div`
@@ -18,7 +18,7 @@ const StyledCountryComponent = styled.div`
       props.theme.siteTheme === DARK_MODE
         ? `5px 5px 20px 0px ${props.theme.darkModeColors.darkModeText}`
         : `5px 5px 20px 0px ${props.theme.lightModeColors.lightModeText}`};
-    transform: skewX(5deg) skewY(20deg);
+    transform: skewY(10deg);
     cursor: pointer;
   }
 

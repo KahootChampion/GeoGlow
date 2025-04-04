@@ -1,3 +1,4 @@
+import React from "react";
 import GlobalStyle from "./styles/GlobalStyles";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
@@ -13,28 +14,18 @@ import { ThemeProvider } from "styled-components";
 import Theme from "./Theme";
 import Home from "./Components/Home/Index";
 
-function App() {
-  library.add(
-    faMoon,
-    faSun,
-    faMagnifyingGlass,
-    faCheck,
-    faChevronDown,
-    faChevronUp
-  );
+function Index() {
   const { siteTheme } = useContext(SiteThemeContext);
   const themeValues = {
     ...Theme,
     siteTheme,
   };
   return (
-    <>
-      <ThemeProvider theme={themeValues}>
-        <GlobalStyle></GlobalStyle>
-        <Home></Home>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={themeValues}>
+      <GlobalStyle></GlobalStyle>
+      <Home></Home>
+    </ThemeProvider>
   );
 }
 
-export default App;
+export default Index;
