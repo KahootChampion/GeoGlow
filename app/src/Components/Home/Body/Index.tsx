@@ -8,6 +8,8 @@ import StyledCountryDataWrapper from "./CountryDataComponent/styles/StyledCountr
 import { applyFilters } from "./Filter/Filters";
 import useFetchCountries, { RestCountryApiEntry } from "./useFetchCountries";
 import StyledLink from "../../../StyledLink";
+import StyledLoadingContainer from "./styles/StyledLoadingContainer";
+import ErrorComponent from "../../Shared/Error/Index";
 
 const Body = () => {
   const [filteredCountryData, setFilteredCountryData] = useState<
@@ -39,8 +41,10 @@ const Body = () => {
           setAppliedRegionFilter={setAppliedRegionFilter}
         />
       </StyledFilterSectionContainer>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>error</p>}
+      <StyledLoadingContainer>
+        {isLoading && <p>Loading...</p>}
+        {error && <ErrorComponent errorMessage={error} />}
+      </StyledLoadingContainer>
       <StyledCountryDataWrapper>
         {filteredCountryData.map((country) => {
           return (
