@@ -11,7 +11,9 @@ import LabelAndValue from "../../Shared/LabelAndValue/LabelAndValue";
 import useFetchSpecificCountry from "./useFetchSpecificCountry";
 import LoadingAndErrorComponent from "../../Shared/LoadingAndErrorComponent";
 import StyledCountryName from "../styles/StyledCountryName";
-import StyledInformationGroup from "../styles/StyledInformationGroup";
+import StyledDetailContainer from "../styles/StyledDetailContainer";
+import StyledSecondInformationGroup from "../styles/StyledSecondInformationGroup";
+import StyledFirstInformationGroup from "../styles/StyledFirstInformationGroup";
 
 const Body = () => {
   type DetailProps = {
@@ -70,14 +72,14 @@ const Body = () => {
             error={error ?? ""}
           ></LoadingAndErrorComponent>
         ) : (
-          <>
+          <StyledDetailContainer>
             <StyledFlag
               src={countryData[0]?.flags.svg}
               alt={countryData[0]?.flags.alt}
             ></StyledFlag>
             <StyledGrid>
               <StyledCountryName>{countryName}</StyledCountryName>
-              <StyledInformationGroup>
+              <StyledFirstInformationGroup>
                 <LabelAndValue
                   label="Native Name"
                   value={
@@ -101,8 +103,8 @@ const Body = () => {
                   label="Capital"
                   value={countryData[0]?.capital?.join(", ") ?? ""}
                 ></LabelAndValue>
-              </StyledInformationGroup>
-              <StyledInformationGroup>
+              </StyledFirstInformationGroup>
+              <StyledSecondInformationGroup>
                 <LabelAndValue
                   label="Top Level Domain"
                   value={countryData[0]?.tld.join(", ") ?? ""}
@@ -115,9 +117,9 @@ const Body = () => {
                   label="Languages"
                   value={GetAllLanguages(countryData[0]?.languages) ?? ""}
                 ></LabelAndValue>
-              </StyledInformationGroup>
+              </StyledSecondInformationGroup>
             </StyledGrid>
-          </>
+          </StyledDetailContainer>
         )}
       </StyledContainer>
     </>
