@@ -1,6 +1,6 @@
 import React from "react";
 import StyledCountryTitle from "./styles/StyledCountryTitle";
-import CountryLabel from "./CountryLabelAndValue";
+import LabelAndValue from "../../../Shared/LabelAndValue/LabelAndValue";
 import StyledCountryInformationContainer from "./styles/StyledCountryInformationContainer";
 import StyledCountryComponent from "./styles/StyledCountryComponent";
 import { RestCountryApiEntry } from "../useFetchCountries";
@@ -12,12 +12,12 @@ const CountryDataComponent = (props: RestCountryApiEntry) => {
       <StyledFlag src={props.flags.svg} alt={props.flags.alt}></StyledFlag>
       <StyledCountryTitle>{props.name.common}</StyledCountryTitle>
       <StyledCountryInformationContainer>
-        <CountryLabel
-          label="Population:"
+        <LabelAndValue
+          label="Population"
           value={props.population}
-        ></CountryLabel>
-        <CountryLabel label="Region:" value={props.region}></CountryLabel>
-        <CountryLabel label="Capital:" value={props.capital}></CountryLabel>
+        ></LabelAndValue>
+        <LabelAndValue label="Region" value={props.region}></LabelAndValue>
+        <LabelAndValue label="Capital" value={props.capital}></LabelAndValue>
       </StyledCountryInformationContainer>
     </StyledCountryComponent>
   );
