@@ -1,7 +1,7 @@
 import StyledTitle from "./styles/StyledTitle.js";
 import { useContext } from "react";
 import { SiteThemeContext } from "../../../SiteThemeContext.js";
-import SiteThemeToggle from "../../SiteThemeToggle.js";
+import SiteThemeToggle from "../../Home/Body/SiteThemeToggle.js";
 import StyledHeader from "./styles/StyledHeader.js";
 
 const Header = () => {

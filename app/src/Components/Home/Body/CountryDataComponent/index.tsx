@@ -1,11 +1,10 @@
 import React from "react";
-import { RestCountryApiEntry } from "../Index";
-import StyledCountryComponent from "./styles/styledCountryComponent";
 import StyledCountryTitle from "./styles/StyledCountryTitle";
-import StyledFlag from "./styles/styledFlag";
-import StyledCountryLabel from "./styles/StyledCountryLabel";
 import CountryLabel from "./CountryLabelAndValue";
 import StyledCountryInformationContainer from "./styles/StyledCountryInformationContainer";
+import StyledCountryComponent from "./styles/StyledCountryComponent";
+import { RestCountryApiEntry } from "../useFetchCountries";
+import StyledFlag from "./styles/StyledFlag";
 
 const CountryDataComponent = (props: RestCountryApiEntry) => {
   return (

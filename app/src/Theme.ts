@@ -1,6 +1,5 @@
 import { DefaultTheme } from "styled-components";
 
-
 const Theme: DefaultTheme = {
   siteColors: {
     placeholder: "#A9A9A9",
@@ -26,6 +25,7 @@ const Theme: DefaultTheme = {
     l: "30px",
     m: "20px",
     s: "10px",
+    xs: "5px",
   },
   fontSize: {
     mobile: {

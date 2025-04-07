@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
-import StyledContainer from "./styles/StyledContainer";
+import StyledContainer from "../../Shared/StyledContainer";
 import StyledFilterSectionContainer from "./Filter/StyledFilterSectionContainer";
 import CountryFilter from "./Filter/RegionFilter";
 import CountryDataComponent from "./CountryDataComponent";
@@ -49,7 +49,7 @@ const Body = () => {
         {filteredCountryData.map((country) => {
           return (
             <StyledLink
-              to={`country/${country.name.common}`}
+              to={`country/${country.name.common}/?flag=${country.flags.svg}&alt=${country.flags.alt}`}
               key={country.name.common}
             >
               <CountryDataComponent {...country}></CountryDataComponent>

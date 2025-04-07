@@ -5,12 +5,15 @@ import {
   faCheck,
   faChevronDown,
   faChevronUp,
+  faArrowLeft,
+  faA,
 } from "@fortawesome/free-solid-svg-icons";
 import { SiteThemeProvider } from "./SiteThemeContext.tsx";
 import Index from "./Index.tsx";
 
 function App() {
   library.add(
+    faArrowLeft,
     faMoon,
     faSun,
     faMagnifyingGlass,

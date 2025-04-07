@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { SiteThemeContext } from "../SiteThemeContext";
-import { DARK_MODE, LIGHT_MODE } from "../Constants";
+import { SiteThemeContext } from "../../../SiteThemeContext";
+import { DARK_MODE, LIGHT_MODE } from "../../../Constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import StyledToggle from "./Home/Header/styles/StyledToggle";
+import StyledToggle from "../../Shared/Header/styles/StyledToggle";
 
 const SiteThemeToggle = () => {
   const { siteTheme, setSiteTheme } = useContext(SiteThemeContext);

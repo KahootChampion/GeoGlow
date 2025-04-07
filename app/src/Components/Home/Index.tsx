@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "../Shared/Header";
 import Body from "./Body/Index";
 
 const Home = () => {
