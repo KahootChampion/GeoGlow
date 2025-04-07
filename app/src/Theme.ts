@@ -17,7 +17,7 @@ const Theme: DefaultTheme = {
     darkModeElements: "hsl(209, 23%, 22%)",
   },
   media: {
-    desktop: `(min-width: 870px)`,
+    desktop: `(min-width: 610px)`,
   },
   spacing: {
     xxl: "50px",
