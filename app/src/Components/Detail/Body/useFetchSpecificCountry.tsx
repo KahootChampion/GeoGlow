@@ -3,10 +3,14 @@ import React, { useEffect, useState } from "react";
 
 export interface RestCountrySpecificApiEntry {
   flags: { svg: string; alt: string };
-  region: string;
-  name: { common: string };
   population: number;
-  capital: string;
+  region: string;
+  subregion: string;
+  name: { nativeName: { [key: string]: { official: string; common: string } } };
+  capital: string[];
+  tld: string[];
+  currencies: Record<string, { name: string; symbol: string }>;
+  languages: Record<string, string>;
 }
 
 const useFetchSpecificCountry = (name: string) => {
@@ -21,7 +25,7 @@ const useFetchSpecificCountry = (name: string) => {
       try {
         setIsLoading(true);
         const axiosRequestConfig: AxiosRequestConfig = {
-          url: `https://restcountries.com/v3.1/name/${name}?fullText=true`,
+          url: `https://restcountries.com/v3.1/name/${name}?fields=name,flags,population,region,subregion,capital,tld,currencies,languages`,
           timeout: 4000,
         };
         const countryApiResponse = await axios(axiosRequestConfig);

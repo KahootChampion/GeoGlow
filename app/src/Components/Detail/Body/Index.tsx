@@ -21,6 +21,18 @@ const Body = () => {
   const { countryData, isLoading, error } = useFetchSpecificCountry(
     countryName ?? ""
   );
+
+  const GetAllNativeCommonNames = (
+    nameObject: Record<string, { official: string; common: string }>
+  ) => {
+    console.log(nameObject);
+    const nameSet =
+      nameObject === undefined
+        ? ""
+        : new Set(Object.values(nameObject).map((nameCode) => nameCode.common));
+
+    return Array.from(nameSet).join(", ");
+  };
   console.log("delete this");
 
   return (
@@ -47,7 +59,14 @@ const Body = () => {
               <h2>{countryName}</h2>
               <LabelAndValue
                 label="Native Name"
-                value={countryData[0]?.capital ?? ""}
+                value={
+                  GetAllNativeCommonNames(countryData[0]?.name?.nativeName) ??
+                  ""
+                }
+              ></LabelAndValue>
+              <LabelAndValue
+                label="Capital"
+                value={countryData[0]?.capital?.join(", ") ?? ""}
               ></LabelAndValue>
             </StyledGrid>
           </>
