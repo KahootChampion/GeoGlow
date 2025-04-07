@@ -33,6 +33,26 @@ const Body = () => {
     return Array.from(nameSet).join(", ");
   };
 
+  const GetAllCurrencyNames = (currencyObject: {
+    [key: string]: { name: string; symbol: string };
+  }) => {
+    const currencies =
+      currencyObject === undefined
+        ? []
+        : Object.values(currencyObject).map((currency) => currency.name);
+
+    return currencies.join(", ");
+  };
+
+  const GetAllLanguages = (languageObject: { [key: string]: string }) => {
+    const languages =
+      languageObject === undefined
+        ? []
+        : Object.values(languageObject).map((language) => language);
+
+    return languages.join(", ");
+  };
+
   return (
     <>
       <StyledContainer>
@@ -63,8 +83,33 @@ const Body = () => {
                 }
               ></LabelAndValue>
               <LabelAndValue
+                label="Population"
+                value={countryData[0]?.population ?? ""}
+              ></LabelAndValue>
+              <LabelAndValue
+                label="Region"
+                value={countryData[0]?.region ?? ""}
+              ></LabelAndValue>
+              <LabelAndValue
+                label="Sub Region"
+                value={countryData[0]?.subregion ?? ""}
+              ></LabelAndValue>
+              <LabelAndValue
                 label="Capital"
                 value={countryData[0]?.capital?.join(", ") ?? ""}
+              ></LabelAndValue>
+              <LabelAndValue
+                label="Top Level Domain"
+                value={countryData[0]?.tld.join(", ") ?? ""}
+              ></LabelAndValue>
+
+              <LabelAndValue
+                label="Currencies"
+                value={GetAllCurrencyNames(countryData[0]?.currencies) ?? ""}
+              ></LabelAndValue>
+              <LabelAndValue
+                label="Languages"
+                value={GetAllLanguages(countryData[0]?.languages) ?? ""}
               ></LabelAndValue>
             </StyledGrid>
           </>

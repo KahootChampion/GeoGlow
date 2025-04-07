@@ -9,8 +9,10 @@ export interface RestCountrySpecificApiEntry {
   name: { nativeName: { [key: string]: { official: string; common: string } } };
   capital: string[];
   tld: string[];
-  currencies: Record<string, { name: string; symbol: string }>;
-  languages: Record<string, string>;
+  currencies: {
+    [key: string]: { name: string; symbol: string };
+  };
+  languages: { [key: string]: string };
 }
 
 const useFetchSpecificCountry = (name: string) => {
