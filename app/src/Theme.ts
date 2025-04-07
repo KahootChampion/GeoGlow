@@ -29,9 +29,9 @@ const Theme: DefaultTheme = {
   },
   fontSize: {
     mobile: {
-      title: "20px",
-      subtitle: "14px",
-      regular: "12px",
+      title: "14px",
+      subtitle: "12px",
+      regular: "10px",
     },
     desktop: {
       title: "40px",

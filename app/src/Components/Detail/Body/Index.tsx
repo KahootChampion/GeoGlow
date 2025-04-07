@@ -10,6 +10,8 @@ import StyledGrid from "../styles/StyledGrid";
 import LabelAndValue from "../../Shared/LabelAndValue/LabelAndValue";
 import useFetchSpecificCountry from "./useFetchSpecificCountry";
 import LoadingAndErrorComponent from "../../Shared/LoadingAndErrorComponent";
+import StyledCountryName from "../styles/StyledCountryName";
+import StyledInformationGroup from "../styles/StyledInformationGroup";
 
 const Body = () => {
   type DetailProps = {
@@ -74,43 +76,46 @@ const Body = () => {
               alt={countryData[0]?.flags.alt}
             ></StyledFlag>
             <StyledGrid>
-              <h2>{countryName}</h2>
-              <LabelAndValue
-                label="Native Name"
-                value={
-                  GetAllNativeCommonNames(countryData[0]?.name?.nativeName) ??
-                  ""
-                }
-              ></LabelAndValue>
-              <LabelAndValue
-                label="Population"
-                value={countryData[0]?.population ?? ""}
-              ></LabelAndValue>
-              <LabelAndValue
-                label="Region"
-                value={countryData[0]?.region ?? ""}
-              ></LabelAndValue>
-              <LabelAndValue
-                label="Sub Region"
-                value={countryData[0]?.subregion ?? ""}
-              ></LabelAndValue>
-              <LabelAndValue
-                label="Capital"
-                value={countryData[0]?.capital?.join(", ") ?? ""}
-              ></LabelAndValue>
-              <LabelAndValue
-                label="Top Level Domain"
-                value={countryData[0]?.tld.join(", ") ?? ""}
-              ></LabelAndValue>
-
-              <LabelAndValue
-                label="Currencies"
-                value={GetAllCurrencyNames(countryData[0]?.currencies) ?? ""}
-              ></LabelAndValue>
-              <LabelAndValue
-                label="Languages"
-                value={GetAllLanguages(countryData[0]?.languages) ?? ""}
-              ></LabelAndValue>
+              <StyledCountryName>{countryName}</StyledCountryName>
+              <StyledInformationGroup>
+                <LabelAndValue
+                  label="Native Name"
+                  value={
+                    GetAllNativeCommonNames(countryData[0]?.name?.nativeName) ??
+                    ""
+                  }
+                ></LabelAndValue>
+                <LabelAndValue
+                  label="Population"
+                  value={countryData[0]?.population ?? ""}
+                ></LabelAndValue>
+                <LabelAndValue
+                  label="Region"
+                  value={countryData[0]?.region ?? ""}
+                ></LabelAndValue>
+                <LabelAndValue
+                  label="Sub Region"
+                  value={countryData[0]?.subregion ?? ""}
+                ></LabelAndValue>
+                <LabelAndValue
+                  label="Capital"
+                  value={countryData[0]?.capital?.join(", ") ?? ""}
+                ></LabelAndValue>
+              </StyledInformationGroup>
+              <StyledInformationGroup>
+                <LabelAndValue
+                  label="Top Level Domain"
+                  value={countryData[0]?.tld.join(", ") ?? ""}
+                ></LabelAndValue>
+                <LabelAndValue
+                  label="Currencies"
+                  value={GetAllCurrencyNames(countryData[0]?.currencies) ?? ""}
+                ></LabelAndValue>
+                <LabelAndValue
+                  label="Languages"
+                  value={GetAllLanguages(countryData[0]?.languages) ?? ""}
+                ></LabelAndValue>
+              </StyledInformationGroup>
             </StyledGrid>
           </>
         )}

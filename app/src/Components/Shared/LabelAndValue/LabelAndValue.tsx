@@ -1,6 +1,6 @@
 import React from "react";
-import StyledCountryLabel from "../../Home/Body/CountryDataComponent/styles/StyledCountryLabel";
-import StyledCountryValue from "../../Home/Body/CountryDataComponent/styles/StyledCountryValue";
+import StyledCountryLabel from "./StyledLabel";
+import StyledCountryValue from "./StyledValue";
 import StyledLabelAndValue from "./StyledLabelAndValue";
 
 interface LabelAndValue {
