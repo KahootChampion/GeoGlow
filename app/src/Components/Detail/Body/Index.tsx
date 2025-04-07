@@ -25,7 +25,6 @@ const Body = () => {
   const GetAllNativeCommonNames = (
     nameObject: Record<string, { official: string; common: string }>
   ) => {
-    console.log(nameObject);
     const nameSet =
       nameObject === undefined
         ? ""
@@ -33,7 +32,6 @@ const Body = () => {
 
     return Array.from(nameSet).join(", ");
   };
-  console.log("delete this");
 
   return (
     <>
