@@ -34,9 +34,9 @@ const Theme: DefaultTheme = {
       regular: "10px",
     },
     desktop: {
-      title: "40px",
-      subtitle: "20px",
-      regular: "16px",
+      title: "30px",
+      subtitle: "14px",
+      regular: "12px",
     },
   },
 };

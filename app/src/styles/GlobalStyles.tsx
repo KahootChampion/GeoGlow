@@ -8,22 +8,19 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: "Nunito Sans", sans-serif;
+    
   }
 
-  html{
-    background-color: ${(props) =>
-      props.theme.siteTheme === DARK_MODE
-        ? props.theme.darkModeColors.darkModeBackground
-        : props.theme.lightModeColors.lightModeBackground};
-    transition: background-color 500ms ease-out;
 
-  }
   body {
     color: ${(props) =>
       props.theme.siteTheme === DARK_MODE
         ? props.theme.darkModeColors.darkModeText
         : props.theme.lightModeColors.lightModeText};
-
+  background-color: ${(props) =>
+    props.theme.siteTheme === DARK_MODE
+      ? props.theme.darkModeColors.darkModeBackground
+      : props.theme.lightModeColors.lightModeBackground};
   }
 
 
