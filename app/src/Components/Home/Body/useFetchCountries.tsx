@@ -20,7 +20,7 @@ const useFetchCountries = () => {
       try {
         setIsLoading(true);
         const axiosRequestConfig: AxiosRequestConfig = {
-          url: "https://restcountries.com/v3.1/all",
+          url: "https://restcountries.com/v3.1/independent?status=true&fields=flags,region,name,population,capital",
           timeout: 4000,
         };
         const allCountriesApiResponse = await axios(axiosRequestConfig);
