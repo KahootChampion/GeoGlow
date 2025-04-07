@@ -15,6 +15,8 @@ const GlobalStyle = createGlobalStyle`
       props.theme.siteTheme === DARK_MODE
         ? props.theme.darkModeColors.darkModeBackground
         : props.theme.lightModeColors.lightModeBackground};
+    transition: background-color 500ms ease-out;
+
   }
   body {
     color: ${(props) =>
@@ -22,7 +24,6 @@ const GlobalStyle = createGlobalStyle`
         ? props.theme.darkModeColors.darkModeText
         : props.theme.lightModeColors.lightModeText};
 
-    transition: background-color 500ms ease-out;
   }
 
 
